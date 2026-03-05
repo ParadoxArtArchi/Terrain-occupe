@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Littérature et Art Golden</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===============================
+   VARIABLES LUXE
+=================================*/
+:root{
+  --bg-dark:#0f0f14;
+  --bg-card:#1a1a22;
+  --gold:#d4af37;
+  --gold-soft:#f1d78c;
+  --royal:#6a4c93;
+  --accent:#b76eff;
+  --text-light:#f5f5f5;
+  --text-soft:#bdbdbd;
+  --success:#25D366;
+  --radius:20px;
+  --shadow-soft:0 10px 30px rgba(0,0,0,0.4);
+  --shadow-gold:0 10px 40px rgba(212,175,55,0.3);
+}
+
+/* ===============================
+   GLOBAL
+=================================*/
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins', sans-serif;
+}
+
+body{
+  background:var(--bg-dark);
+  color:var(--text-light);
+  overflow-x:hidden;
+}
+
+section{
+  padding:60px 20px;
+}
+
+.container{
+  max-width:500px;
+  margin:auto;
+}
+
+/* ===============================
+   TITRES
+=================================*/
+h1,h2,h3{
+  font-weight:700;
+  letter-spacing:0.5px;
+}
+
+h1{
+  font-size:28px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+h2{
+  font-size:22px;
+  margin-bottom:20px;
+  color:var(--gold);
+}
+
+/* ===============================
+   BOUTONS
+=================================*/
+.btn{
+  display:block;
+  text-align:center;
+  padding:16px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  margin-top:18px;
+  transition:0.3s ease;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+  box-shadow:var(--shadow-gold);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 45px rgba(212,175,55,0.5);
+}
+
+.btn-dark{
+  background:var(--royal);
+  color:#fff;
+}
+
+.btn-dark:hover{
+  background:var(--accent);
+}
+
+/* ===============================
+   HERO SECTION
+=================================*/
+.hero{
+  text-align:center;
+  padding-top:80px;
+  background:radial-gradient(circle at top, #1a1a22, #0f0f14);
+}
+
+.hero p{
+  margin-top:18px;
+  font-size:15px;
+  color:var(--text-soft);
+  line-height:1.7;
+}
+
+/* ===============================
+   BANNER PROMO
+=================================*/
+.offer-banner{
+  background:linear-gradient(135deg,#1e1e2a,#121218);
+  text-align:center;
+  border-top:1px solid rgba(212,175,55,0.2);
+  border-bottom:1px solid rgba(212,175,55,0.2);
+  font-weight:600;
+  color:var(--gold-soft);
+}
+
+#countdown{
+  margin-top:10px;
+  font-size:20px;
+  color:var(--gold);
+}
+
+/* ===============================
+   COUNTER
+=================================*/
+.counter{
+  text-align:center;
+  font-size:18px;
+  font-weight:600;
+  color:var(--gold-soft);
+}
+
+/* ===============================
+   PRODUITS
+=================================*/
+.product{
+  background:var(--bg-card);
+  border-radius:var(--radius);
+  padding:25px;
+  margin-bottom:30px;
+  box-shadow:var(--shadow-soft);
+  transition:0.4s ease;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.product:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 50px rgba(0,0,0,0.6);
+}
+
+.product.selected{
+  border:1px solid var(--gold);
+  box-shadow:0 15px 50px rgba(212,175,55,0.3);
+}
+
+.product img{
+  width:100%;
+  border-radius:var(--radius);
+  margin-bottom:20px;
+}
+
+.product p{
+  color:var(--text-soft);
+  font-size:14px;
+  line-height:1.6;
+}
+
+.product ul{
+  margin-top:15px;
+  padding-left:18px;
+}
+
+.product ul li{
+  margin-bottom:6px;
+  font-size:14px;
+  color:var(--text-soft);
+}
+
+.price{
+  font-size:22px;
+  font-weight:700;
+  margin:15px 0;
+  color:var(--gold);
+}
+
+/* ===============================
+   OFFRE PREMIUM
+=================================*/
+.premium{
+  background:linear-gradient(145deg,#1f1b2e,#15131f);
+  border:1px solid var(--gold);
+  box-shadow:0 15px 60px rgba(212,175,55,0.4);
+  position:relative;
+}
+
+.premium::before{
+  content:"OFFRE RECOMMANDÉE";
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+  font-size:11px;
+  padding:6px 14px;
+  border-radius:20px;
+  font-weight:700;
+}
+
+.premium .btn{
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+}
+
+/* ===============================
+   TÉMOIGNAGES
+=================================*/
+.testimonial{
+  background:#14141c;
+  padding:25px;
+  border-radius:var(--radius);
+  margin-bottom:20px;
+  box-shadow:var(--shadow-soft);
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.testimonial img{
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  margin-bottom:15px;
+  border:2px solid var(--gold);
+}
+
+.testimonial p{
+  font-size:14px;
+  color:var(--text-soft);
+}
+
+/* ===============================
+   WHATSAPP
+=================================*/
+.whatsapp{
+  text-align:center;
+  background:#121218;
+}
+
+.whatsapp .btn{
+  background:var(--success);
+  color:#fff;
+  box-shadow:0 10px 30px rgba(37,211,102,0.4);
+}
+
+/* ===============================
+   TRUST SECTION
+=================================*/
+.trust{
+  text-align:center;
+  font-size:13px;
+  color:var(--text-soft);
+  background:#0d0d12;
+}
+
+/* ===============================
+   NOTIFICATIONS
+=================================*/
+.notification{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#000;
+  padding:14px 20px;
+  border-radius:50px;
+  box-shadow:var(--shadow-gold);
+  font-size:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  animation:slideDown 0.6s ease;
+  z-index:9999;
+}
+
+@keyframes slideDown{
+  from{
+    opacity:0;
+    transform:translate(-50%,-20px);
+  }
+  to{
+    opacity:1;
+    transform:translate(-50%,0);
+  }
+}
+
+/* ===============================
+   ANIMATION SCROLL
+=================================*/
+.fade-in{
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.8s ease;
+}
+
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+  
+/* ========================= */
+/* VIDEO TESTIMONIAL PREMIUM */
+/* ========================= */
+
+.video-testimonial{
+width:100%;
+padding:120px 5%;
+display:flex;
+justify-content:center;
+background:#000;
+}
+
+.video-container{
+position:relative;
+width:100%;
+max-width:900px;
+overflow:hidden;
+border-radius:0px;
+box-shadow:0 40px 80px rgba(0,0,0,0.12);
+transition:1s cubic-bezier(.19,1,.22,1);
+}
+
+.video-container:hover{
+transform:scale(1.02);
+}
+
+.video-container{
+position:relative;
+width:100%;
+max-width:500px;   /* largeur max */
+aspect-ratio:1 / 1; /* 👈 force le carré */
+background:#000;   /* 👈 vide en noir */
+overflow:hidden;
+margin:auto;
+}
+
+.video-container video{
+width:100%;
+height:100%;
+object-fit:contain; /* 👈 garde le ratio */
+display:block;
+}
+
+/* Titre discret architectural */
+.video-caption{
+position:absolute;
+bottom:20px;
+left:30px;
+color:#fff;
+font-size:13px;
+letter-spacing:3px;
+background:rgba(0,0,0,0.5);
+padding:10px 20px;
+border-radius:40px;
+backdrop-filter:blur(8px);
+}  
+  
+/* ========================= */
+/* FACEBOOK TRUST PREMIUM    */
+/* ========================= */
+
+.facebook-trust{
+padding:140px 5%;
+background:#000;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:80px;
+}
+
+/* Carte principale */
+.facebook-card{
+max-width:1000px;
+width:100%;
+display:grid;
+grid-template-columns:1fr 1fr;
+background:#ffffff;
+border:1px solid rgba(0,0,0,0.1);
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 40px 80px rgba(0,0,0,0.08);
+transition:1s cubic-bezier(.19,1,.22,1);
+}
+
+.facebook-card:hover{
+transform:translateY(-8px);
+box-shadow:0 50px 100px rgba(0,0,0,0.12);
+}
+
+/* Image */
+.facebook-cover img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+/* Texte */
+.facebook-content{
+padding:60px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.facebook-content h3{
+font-weight:500;
+font-size:24px;
+margin-bottom:20px;
+letter-spacing:1px;
+color:#000;  
+}
+  
+
+.facebook-content p{
+font-size:14px;
+line-height:1.8;
+color:#555;
+margin-bottom:35px;
+}
+
+/* Bouton */
+.facebook-btn{
+display:inline-block;
+padding:16px 45px;
+border:1px solid #1877F2;
+color:#1877F2;
+text-decoration:none;
+letter-spacing:2px;
+font-size:12px;
+text-transform:uppercase;
+transition:0.6s cubic-bezier(.77,0,.18,1);
+position:relative;
+overflow:hidden;
+}
+
+ .custom-video{
+position:relative;
+width:100%;
+max-width:300px;   /* largeur max */
+aspect-ratio:2 / 1; /* 👈 force le carré */
+background:#000;   /* 👈 vide en noir */
+overflow:hidden;
+   margin:auto;
+ }
+  
+.video-title{
+font-size:14px;
+font-weight:400;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#fff;
+margin-bottom:20px;
+}  
+  
+.facebook-btn::before{
+content:"";
+position:absolute;
+inset:0;
+background:#1877F2;
+transform:translateX(-100%);
+transition:0.6s cubic-bezier(.77,0,.18,1);
+z-index:-1;
+}
+
+.facebook-btn:hover{
+color:#fff;
+}
+
+.facebook-btn:hover::before{
+transform:translateX(0);
+}
+
+/* Capture écran */
+.facebook-preview{
+max-width:1000px;
+width:100%;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 40px 80px rgba(0,0,0,0.08);
+}
+
+.facebook-preview img{
+width:100%;
+display:block;
+}
+
+/* Responsive */
+@media(max-width:900px){
+.facebook-card{
+grid-template-columns:1fr;
+}
+.facebook-content{
+padding:40px;
+}
+}  
+  
+</style>
+</head>
+
+<body>
+
+<section class="hero fade-in">
+<div class="container">
+<h1>Bienvenue chez Littérature et Art Golden</h1>
+<p>Votre bibliothèque numérique premium dédiée aux femmes ambitieuses d’Afrique.</p>
+<p>Des ebooks puissants pour transformer votre relation, renforcer votre valeur et révéler votre puissance féminine.</p>
+<a href="#produits" class="btn btn-primary">Découvrir les offres</a>
+</div>
+</section>
+
+<section class="offer-banner fade-in">
+<div class="container">
+🔥 Promotion exceptionnelle jusqu’au 9 mars
+<div id="countdown"></div>
+</div>
+</section>
+
+<section class="counter fade-in">
+<div class="container">
+✨ Plus de <span id="buyerCount">500</span> femmes ont déjà transformé leur relation
+</div>
+</section>
+
+<section id="produits" class="container fade-in">
+
+<!-- OFFRE 1 -->
+<div class="product" onclick="selectProduct(this)">
+<img src="https://i.postimg.cc/TwBtShCR/1-20260301-225946-0000.jpg" alt="Votre Homme Votre Trésor">
+<h3>Votre Homme Votre Trésor</h3>
+<p>Comprenez profondément l’homme que vous aimez et créez une relation stable et respectueuse.</p>
+<div class="price">1200 FCFA</div>
+<ul>
+<li>✔ Communication améliorée</li>
+<li>✔ Respect mutuel renforcé</li>
+<li>✔ Relation plus stable</li>
+</ul>
+<h4 class="video-title">Témoignage d’une lectrice : </h4>
+  <video class="custom-video"
+       controls
+       playsinline
+       preload="metadata"
+       poster="https://i.postimg.cc/HkMTGFjY/telechargement.png">
+
+  <source src="https://d1yei2z3i6k35z.cloudfront.net/3312537/69a983d462dd4_lv_0_20260305141923.mp4" type="video/mp4">
+
+  Votre navigateur ne supporte pas la lecture vidéo.
+</video>
+  <div class="btn btn-dark" onclick="buy(event,'https://kokissa.mychariow.shop/prd_ebgwri/checkout')">Acheter maintenant</div>
+</div>
+
+<!-- OFFRE 2 -->
+<div class="product" onclick="selectProduct(this)">
+<img src="https://i.postimg.cc/TPCq8hYM/Untitled-design-20260301-230124-0000.jpg" alt="Pack Relation Puissante">
+<h3>Pack Relation Puissante</h3>
+<p>Deux livres puissants + un bonus investissement pour femmes stratégiques.</p>
+<div class="price">2000 FCFA</div>
+<ul>
+<li>✔ Maîtrise émotionnelle avancée</li>
+<li>✔ Amour solide et durable</li>
+<li>✔ Sécurité affective renforcée</li>
+<li>✔ Meilleure compréhension masculine</li>
+<li>✔ Bonus stratégie financière offert</li>
+</ul>
+<div class="btn btn-dark" onclick="buy(event,'https://kokissa.mychariow.shop/prd_pe8wty/checkout')">Je prends le pack</div>
+</div>
+
+<!-- OFFRE 3 PREMIUM -->
+<div class="product premium" onclick="selectProduct(this)">
+<img src="https://i.postimg.cc/0Q7SkQ9R/2-20260301-225946-0001.jpg" alt="Collection Premium">
+<h3>Collection Premium Complète</h3>
+<p>La transformation ultime : tous les livres + 4 ebooks intimes exclusifs.</p>
+<div class="price">2500 FCFA</div>
+<ul>
+<li>✔ Transformation complète de votre relation</li>
+<li>✔ Séduction raffinée et élégante</li>
+<li>✔ Connexion intime profonde</li>
+<li>✔ Confiance féminine renforcée</li>
+<li>✔ Techniques d’attraction avancées</li>
+<li>✔ Bonus affaires & indépendance financière</li>
+<li>✔ Accès à l’ensemble du contenu premium</li>
+</ul>
+<div class="btn" onclick="buy(event,'https://kokissa.mychariow.shop/prd_d1cbw1/checkout')">Accéder à l’offre Premium</div>
+</div>
+
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="container fade-in">
+<h2 style="text-align:center;">Témoignages</h2>
+
+<div class="testimonial">
+<img src="https://i.postimg.cc/L5JqNVb2/137693.jpg">
+<p>“Ma relation a complètement changé. Je me sens plus confiante et respectée.”</p>
+<strong>— Mireille, Cameroun</strong>
+</div>
+
+<div class="testimonial">
+<img src="https://i.postimg.cc/nLfvrNSy/16303.jpg">
+<p>“Un contenu puissant, profond et transformateur. Je recommande à toutes les femmes ambitieuses.”</p>
+<strong>— Aïcha, Bénin</strong>
+</div>
+
+<div class="image-container" style="text-align:center; padding:10px;">
+    <img src="https://i.postimg.cc/sDMhxwjc/Screenshot_2026_02_27_15_33_23_977_com_whatsapp_w4b_(1)_(2).jpg"
+         alt="Produit"
+         style="width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+</div>  
+  
+<div class="image-container" style="text-align:center; padding:10px;">
+    <img src="https://i.postimg.cc/vmW0rZKJ/1772405271702-(1).jpg"
+         alt="Produit"
+         style="width:100%; max-width:400px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
+</div>    
+  
+<!-- ========================= -->
+<!-- VIDEO TESTIMONIAL BLOCK  -->
+<!-- ========================= -->
+
+<section class="video-testimonial">
+  
+  <div class="video-container">
+    
+    <!-- VIDÉO -->
+    <video controls playsinline preload="metadata" poster="https://i.postimg.cc/HkMTGFjY/telechargement.png">
+      <source src="https://d1yei2z3i6k35z.cloudfront.net/3312537/69a983d462dd4_lv_0_20260305141923.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture vidéo.
+    </video>
+
+    <!-- Overlay titre -->
+    <div class="video-caption">
+      Témoignage Client
+    </div>
+
+  </div>
+
+</section>  
+  
+  
+</section>
+
+<!-- ========================= -->
+<!-- FACEBOOK TRUST BLOCK      -->
+<!-- ========================= -->
+
+<section class="facebook-trust">
+
+  <div class="facebook-card">
+
+    <!-- Image couverture Facebook -->
+    <div class="facebook-cover">
+      <img src="https://i.postimg.cc/7hK4xkrg/FB-IMG-1772718111966.jpg" alt="Page Facebook PAA">
+    </div>
+
+    <!-- Contenu -->
+    <div class="facebook-content">
+      <h3>Rejoignez notre communauté</h3>
+      <p>
+        Découvrez d autres livres,et mises à jour exclusives
+        sur notre page officielle Facebook.
+      </p>
+
+      <a href="https://www.facebook.com/share/1GRv2SfjwZ/" target="_blank" class="facebook-btn">
+        Nous suivre sur Facebook
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Capture écran Facebook -->
+  <div class="facebook-preview">
+    <img src="https://i.postimg.cc/zBRHbxG2/Screenshot-2026-03-05-14-36-44-822-com-facebook-katana.jpg" alt="Capture Facebook">
+  </div>
+
+</section>
+
+<!-- TRUST -->
+<section class="trust fade-in">
+<div class="container">
+<p>🔒 Paiement sécurisé</p>
+<p>⚡ Livraison immédiate en version numérique</p>
+<p>🌍 Des clientes satisfaites au Congo, Cameroun, Bénin, Gabon, Burkina Faso</p>
+<p>Suivez-nous sur Facebook pour plus de conseils et nouveautés.</p>
+</div>
+</section>
+  
+  
+  
+<script>
+
+/* =========================
+   COUNTDOWN PREMIUM
+========================= */
+
+const countdownElement = document.getElementById("countdown");
+const endDate = new Date("March 10, 2026 23:59:59").getTime();
+
+function updateCountdown(){
+const now = new Date().getTime();
+const distance = endDate - now;
+
+if(distance > 0){
+let days = Math.floor(distance/(1000*60*60*24));
+let hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+let minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+let seconds = Math.floor((distance%(1000*60))/1000);
+
+countdownElement.innerHTML = 
+`<span>${days}j</span> 
+<span>${hours}h</span> 
+<span>${minutes}m</span> 
+<span style="color:#ff4d6d;font-weight:bold">${seconds}s</span>`;
+}
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+
+/* =========================
+   COMPTEUR INTELLIGENT
+========================= */
+
+let buyerCount = localStorage.getItem("buyerCount") 
+? parseInt(localStorage.getItem("buyerCount")) 
+: 500;
+
+const buyerElement = document.getElementById("buyerCount");
+buyerElement.innerText = buyerCount;
+
+function animateCounter(){
+buyerElement.style.transform="scale(1.2)";
+buyerElement.style.color="#ff4d6d";
+setTimeout(()=>{
+buyerElement.style.transform="scale(1)";
+buyerElement.style.color="";
+},300);
+}
+
+function buy(e,link){
+e.stopPropagation();
+buyerCount++;
+localStorage.setItem("buyerCount",buyerCount);
+buyerElement.innerText = buyerCount;
+animateCounter();
+
+/* Effet flash premium */
+document.body.style.transition="0.4s";
+document.body.style.opacity="0.7";
+
+setTimeout(()=>{
+window.location.href=link;
+},900);
+}
+
+function selectProduct(el){
+document.querySelectorAll(".product").forEach(p=>p.classList.remove("selected"));
+el.classList.add("selected");
+}
+
+
+/* =========================
+   NOTIFICATIONS PREMIUM
+========================= */
+
+const names=[
+"Clarisse","Fatou","Brigitte","Aminata","Chantal","Grâce",
+"Nadine","Carine","Joséphine","Ruth","Aïcha","Mariam",
+"Christelle","Sonia","Reine","Prisca","Déborah",
+"Salimata","Awa","Adja","Rokia","Binta"
+];
+
+const countries=[
+"Bénin","Burkina Faso","Cameroun","Congo","Gabon","RDC"
+];
+
+const products=[
+"Votre Homme Votre Trésor",
+"Pack Relation Puissante",
+"Collection Premium Complète"
+];
+
+const intervals = [15000,20000,25000,30000,40000];
+let intervalIndex = 0;
+
+function showNotification(){
+
+let name = names[Math.floor(Math.random()*names.length)];
+let country = countries[Math.floor(Math.random()*countries.length)];
+let product = products[Math.floor(Math.random()*products.length)];
+
+let notif = document.createElement("div");
+notif.className="notification";
+notif.innerHTML = `
+<div style="display:flex;align-items:center;gap:10px;">
+<span style="font-size:18px;">🔥</span>
+<div>
+<strong>${name}</strong> vient d’acheter <br>
+<small>${product} • ${country}</small>
+</div>
+</div>`;
+
+document.body.appendChild(notif);
+
+/* animation entrée */
+setTimeout(()=>{
+notif.style.opacity="1";
+notif.style.transform="translateY(0)";
+},100);
+
+/* compteur augmente */
+buyerCount++;
+localStorage.setItem("buyerCount",buyerCount);
+buyerElement.innerText = buyerCount;
+animateCounter();
+
+/* disparition */
+setTimeout(()=>{
+notif.style.opacity="0";
+notif.style.transform="translateY(20px)";
+setTimeout(()=>notif.remove(),1000);
+},5000);
+
+intervalIndex++;
+if(intervalIndex >= intervals.length){
+intervalIndex = 0;
+}
+
+setTimeout(showNotification, intervals[intervalIndex]);
+}
+
+setTimeout(showNotification, intervals[intervalIndex]);
+
+
+/* =========================
+   SCROLL ANIMATION SMOOTH
+========================= */
+
+const faders=document.querySelectorAll(".fade-in");
+const appearOptions={threshold:0.2};
+
+const appearOnScroll=new IntersectionObserver(function(entries,observer){
+entries.forEach(entry=>{
+if(!entry.isIntersecting){return;}
+entry.target.classList.add("visible");
+observer.unobserve(entry.target);
+});
+},appearOptions);
+
+faders.forEach(fader=>{
+appearOnScroll.observe(fader);
+});
+
+
+/* =========================
+   BARRE URGENCE PROMO
+========================= */
+
+let progressBar = document.createElement("div");
+progressBar.style.position="fixed";
+progressBar.style.top="0";
+progressBar.style.left="0";
+progressBar.style.height="5px";
+progressBar.style.background="linear-gradient(90deg,#ff4d6d,#6a4c93)";
+progressBar.style.zIndex="9999";
+progressBar.style.transition="width 1s";
+document.body.appendChild(progressBar);
+
+function updateProgress(){
+let now = new Date().getTime();
+let total = endDate - (new Date("March 1, 2026 00:00:00").getTime());
+let passed = now - (new Date("March 1, 2026 00:00:00").getTime());
+let percent = (passed/total)*100;
+progressBar.style.width = percent+"%";
+}
+
+setInterval(updateProgress,1000);
+
+</script>  
